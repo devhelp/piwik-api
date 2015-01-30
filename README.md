@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/devhelp/piwik-api.png)](https://travis-ci.org/devhelp/piwik-api)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/XXX/mini.png)](https://insight.sensiolabs.com/projects/XXX)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/28e1c8a6-8931-4a57-b836-594734457b56/mini.png)](https://insight.sensiolabs.com/projects/28e1c8a6-8931-4a57-b836-594734457b56)
 
 ## Installation
 

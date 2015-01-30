@@ -1,6 +1,6 @@
 {
     "name": "devhelp/piwik-api",
-    "description": "",
+    "description": "Provides self-contained piwik methods that are able to make call to api with predefined or/and runtime arguments",
     "homepage": "http://devhelp.pl",
     "license": "MIT",
     "authors": [
