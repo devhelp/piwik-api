@@ -3,7 +3,7 @@
 
 ## Installation
 
-Composer is preferred to install Normalizer component, please check [composer website](http://getcomposer.org) for more information.
+Composer is preferred to install the component, please check [composer website](http://getcomposer.org) for more information.
 
 ```
 $ composer require 'devhelp/piwik-api:dev-master'
