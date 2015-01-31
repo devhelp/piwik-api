@@ -3,7 +3,7 @@
 
 ## Installation
 
-Composer is preferred to install the component, please check [composer website](http://getcomposer.org) for more information.
+Composer is preferred to install Normalizer component, please check [composer website](http://getcomposer.org) for more information.
 
 ```
 $ composer require 'devhelp/piwik-api:dev-master'
@@ -30,24 +30,24 @@ $method->call(array('token_auth' => 'MY_TOKEN'));
 
 ```
 
-### Creating multiple methods with MethodFactory
+### Creating multiple methods with Api
 
 ```
 $myPiwikClient = new MyPiwikClient();
 
-$methodFactory = new MethodFactory($myPiwikClient, 'http://my.piwik.pro');
-$methodFactory->setDefaultParams(array(
+$api = new Api($myPiwikClient, 'http://my.piwik.pro');
+$api->setDefaultParams(array(
     'token_auth' => 'MY_TOKEN',
 ));
 
-$methodFactory->create('MyModule.myAction')->call();
-$methodFactory->create('MyOtherModule.myOtherAction')->call();
-$methodFactory->create('MyXXXModule.myXXXAction')->call();
+$api->getMethod('MyModule.myAction')->call();
+$api->getMethod('MyOtherModule.myOtherAction')->call();
+$api->getMethod('MyXXXModule.myXXXAction')->call();
 ```
 
 ### Passing parameters to the call
 
-This can be done be passing an array on method call or setting it as default params in the method or method factory.
+This can be done be passing an array on method call or setting it as default params for the method or the whole api.
 Parameters can be either a scalar or an object implementing Param interface.
 
 When class implements a Param interface it's value is resolved on call so implementation can resolve it at runtime

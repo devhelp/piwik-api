@@ -1,15 +1,16 @@
 <?php
 
-namespace Devhelp\Piwik\Api\Method;
+namespace Devhelp\Piwik\Api;
 
 
 use Devhelp\Piwik\Api\Client\PiwikClient;
+use Devhelp\Piwik\Api\Method\Method;
 
 /**
  * Creates Method objects using predefined set of arguments, so that
  * all methods will share the same basic set of them
  */
-class MethodFactory
+class Api
 {
 
     private $piwikClient;
@@ -38,7 +39,7 @@ class MethodFactory
      * @param string $methodName
      * @return Method
      */
-    public function create($methodName)
+    public function getMethod($methodName)
     {
         $method = new Method($this->piwikClient, $this->url, $methodName);
 

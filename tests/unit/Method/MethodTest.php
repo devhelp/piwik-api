@@ -12,11 +12,6 @@ class MethodTest extends ProphecyTestCase
     /**
      * @var ObjectProphecy
      */
-    private $connection;
-
-    /**
-     * @var ObjectProphecy
-     */
     private $client;
 
     private $url;
