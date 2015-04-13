@@ -2,8 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment;
 
-
-use Devhelp\Piwik\Api\Param\Segment\Assertion\Assertion;
+use Devhelp\Piwik\Api\Param\Segment\Assertion\Operator;
 
 /**
  * Represents piwik segment value. Can be used to build
@@ -11,8 +10,8 @@ use Devhelp\Piwik\Api\Param\Segment\Assertion\Assertion;
  */
 class Segment
 {
-    const OR_OPERATOR = ',';
-    const AND_OPERATOR = ';';
+    const OR_EXPRESSION = ',';
+    const AND_EXPRESSION = ';';
 
     private $queryParts = array();
 
@@ -24,7 +23,7 @@ class Segment
     public function getQuery()
     {
         $queryParts = array_map(function ($value) {
-            return ($value instanceof Assertion) ? $value->expression() : $value;
+            return ($value instanceof Operator) ? $value->expression() : $value;
         }, $this->queryParts);
 
         return implode('', $queryParts);
@@ -33,10 +32,10 @@ class Segment
     /**
      * starts segment query with assertion
      *
-     * @param Assertion $assertion
+     * @param Operator $assertion
      * @return self
      */
-    public function where(Assertion $assertion)
+    public function where(Operator $assertion)
     {
         $this->queryParts = array();
         $this->queryParts[] = $assertion;
@@ -47,13 +46,13 @@ class Segment
     /**
      * adds new assertion using with AND. Starts new segment query if was not started yet
      *
-     * @param Assertion $assertion
+     * @param Operator $assertion
      * @return self
      */
-    public function andWhere(Assertion $assertion)
+    public function andWhere(Operator $assertion)
     {
         if ($this->queryParts) {
-            $this->queryParts[] = self::AND_OPERATOR;
+            $this->queryParts[] = self::AND_EXPRESSION;
         }
 
         $this->queryParts[] = $assertion;
@@ -64,13 +63,13 @@ class Segment
     /**
      * adds new assertion using with OR. Starts new segment query if was not started yet
      *
-     * @param Assertion $assertion
+     * @param Operator $assertion
      * @return self
      */
-    public function orWhere(Assertion $assertion)
+    public function orWhere(Operator $assertion)
     {
         if ($this->queryParts) {
-            $this->queryParts[] = self::OR_OPERATOR;
+            $this->queryParts[] = self::OR_EXPRESSION;
         }
 
         $this->queryParts[] = $assertion;

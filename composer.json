@@ -20,7 +20,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Devhelp\\Piwik\\Api\\": ["tests/unit"]
+            "Devhelp\\Piwik\\Api\\": "tests/"
         }
     },
     "require": {
@@ -29,7 +29,7 @@
     "require-dev": {
         "phpunit/phpunit": "~4",
         "phpspec/prophecy-phpunit": "~1",
-        "squizlabs/php_codesniffer": "~1"
+        "squizlabs/php_codesniffer": "~2"
     },
     "suggest": {
         "guzzlehttp/guzzle": "To use piwik client based guzzle http client"

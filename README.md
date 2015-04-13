@@ -3,7 +3,7 @@
 
 ## Installation
 
-Composer is suggested to install the component, please check [composer website](http://getcomposer.org) for more information.
+Please check [composer website](http://getcomposer.org) for more information.
 
 ```
 $ composer require 'devhelp/piwik-api:dev-master'
@@ -21,23 +21,23 @@ There is an already implemented PiwikGuzzleClient for which you have to configur
 
 ### Standalone Method usage
 
-```
+```php
 $myPiwikClient = new MyPiwikClient();
 
 $method = new Method($myPiwikClient, 'http://my.piwik.pro', 'MyModule.myAction')
 
-$method->call(array('token_auth' => 'MY_TOKEN'));
+$method->call(array('token_auth' => $myPiwikToken));
 
 ```
 
 ### Creating multiple methods with Api
 
-```
+```php
 $myPiwikClient = new MyPiwikClient();
 
 $api = new Api($myPiwikClient, 'http://my.piwik.pro');
 $api->setDefaultParams(array(
-    'token_auth' => 'MY_TOKEN',
+    'token_auth' => $myPiwikToken,
 ));
 
 $api->getMethod('MyModule.myAction')->call();
@@ -48,17 +48,16 @@ $api->getMethod('MyXXXModule.myXXXAction')->call();
 ### Passing parameters to the call
 
 This can be done be passing an array on method call or setting it as default params for the method or the whole api.
-Parameters can be either a scalar or an object implementing Param interface.
+Parameters can be either a scalar, a callback or an object implementing Param interface.
 
-When class implements a Param interface it's value is resolved on call so implementation can resolve it at runtime
+When parameter value implements a Param interface or is a callback then it's final value is resolved on call() runtime
 (resulting in lazy-loaded param value). There is a Segment param that will be explained later. Lazy-loading can be
 particularly useful for returning a token_auth by user that is currently logged in
 
-```
+```php
 $params = array(
     'myCustomVar1' => 'someValue',
-     new TokenAuth(new LazyTokenAuthValue()),
-     new MyParam(),
+    'token_auth' => new LazyTokenAuthValue()
 );
 
 /*
@@ -66,7 +65,6 @@ $params = array(
  * array(
  *     'myCustomVar1' => 'someValue',
  *     'token_auth' => ..., //this what was resolved from LazyTokenAuthValue
- *     (...) //whatever value => key pairs that were returned by MyParam,
  * );
  */
 ```
@@ -75,7 +73,7 @@ $params = array(
 
 Segment param has its own implementation that allows to build piwik segment query. It's value is resolved on call
 
-```
+```php
 use Devhelp\Piwik\Api\Param\Segment as SegmentParam;
 use Devhelp\Piwik\Api\Param\Segment\Segment;
 
@@ -86,7 +84,7 @@ $segment->where(new Equals('country', 'PL'))
         ->andWhere(new Contains('referrerName', 'piwik'))
         ->orWhere(new DoesNotContain('referrerKeyword', 'myBrand'));
 
-$params = array(new SegmentParam($segment));
+$params = array('segment' => new SegmentParam($segment));
 
 /*
  * this will be resolved to

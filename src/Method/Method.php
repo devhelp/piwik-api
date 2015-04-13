@@ -2,7 +2,6 @@
 
 namespace Devhelp\Piwik\Api\Method;
 
-
 use Devhelp\Piwik\Api\Client\PiwikClient;
 use Devhelp\Piwik\Api\Param\ParamResolver;
 

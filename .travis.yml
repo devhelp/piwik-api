@@ -9,4 +9,6 @@ before_script:
   - composer self-update
   - composer install
 
-script: ./bin/phpunit
+script:
+  - ./bin/phpcs --standard=phpcs.xml src/
+  - ./bin/phpunit

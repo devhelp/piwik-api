@@ -2,8 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
 
-
-class Contains extends GenericAssertion
+class Contains extends GenericOperator
 {
     public function __construct($field, $value)
     {

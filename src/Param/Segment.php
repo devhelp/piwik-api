@@ -2,24 +2,31 @@
 
 namespace Devhelp\Piwik\Api\Param;
 
+use Devhelp\Piwik\Api\Param\Segment\Segment as SegmentQuery;
 
-use Devhelp\Piwik\Api\Param\Segment\Segment as SegmentValue;
-
+/**
+ * Adapter for Segment (to be used as Param)
+ */
 class Segment implements Param
 {
 
     /**
-     * @var SegmentValue
+     * @var SegmentQuery
      */
     private $segment;
 
-    public function __construct(SegmentValue $segment)
+    public function __construct(SegmentQuery $segment)
     {
         $this->segment = $segment;
     }
 
+    /**
+     * returns param value
+     *
+     * @return string
+     */
     public function value()
     {
-        return array('segment' => $this->segment->getQuery());
+        return $this->segment->getQuery();
     }
 }

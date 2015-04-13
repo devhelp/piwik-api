@@ -2,8 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
 
-
-class LessThanOrEqual extends GenericAssertion
+class LessThanOrEqual extends GenericOperator
 {
     public function __construct($field, $value)
     {

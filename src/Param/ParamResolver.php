@@ -2,7 +2,6 @@
 
 namespace Devhelp\Piwik\Api\Param;
 
-
 class ParamResolver
 {
 
@@ -57,11 +56,17 @@ class ParamResolver
         $resolved = array();
 
         foreach ($params as $key => $value) {
-            $param = ($value instanceof Param) ? $value->value() : array($key => $value);
+            if ($value instanceof Param) {
+                $value = $value->value();
+            } elseif (is_callable($value)) {
+                $value = $value();
+            }
+
+            $param = array($key => $value);
 
             $resolved = array_merge($resolved, $param);
         }
 
-        return $params;
+        return $resolved;
     }
 }

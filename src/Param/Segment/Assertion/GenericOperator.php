@@ -2,8 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
 
-
-class GenericAssertion implements Assertion
+class GenericOperator implements Operator
 {
     protected $field;
     protected $value;

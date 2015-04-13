@@ -8,9 +8,9 @@ namespace Devhelp\Piwik\Api\Param;
 interface Param
 {
     /**
-     * returns array with param names and values (it may return many of them at once)
+     * returns param value
      *
-     * @return array
+     * @return mixed
      */
     public function value();
 }

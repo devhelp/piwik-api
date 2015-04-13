@@ -2,7 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
 
-interface Assertion
+interface Operator
 {
     /**
      * string representing an assertion in the context of a Segment

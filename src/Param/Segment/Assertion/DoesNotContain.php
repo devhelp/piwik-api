@@ -2,8 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
 
-
-class DoesNotContain extends GenericAssertion
+class DoesNotContain extends GenericOperator
 {
     public function __construct($field, $value)
     {

@@ -2,7 +2,6 @@
 
 namespace Devhelp\Piwik\Api;
 
-
 use Devhelp\Piwik\Api\Client\PiwikClient;
 use Devhelp\Piwik\Api\Method\Method;
 

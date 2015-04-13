@@ -24,11 +24,11 @@ class ParamResolverTest extends \PHPUnit_Framework_TestCase
         $defaults = array(
             'k_1' => 'd1',
             'k_2' => 'd2',
-            'k_3' => 'd3',
+            'k_3' => function() { return 'd3'; },
         );
 
         $mandatory = array(
-            'k_2' => 'm2',
+            'k_2' => new RawParam('m2'),
         );
 
         $params = array(
