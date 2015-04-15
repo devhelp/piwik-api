@@ -1,11 +1,11 @@
 <?php
 
-namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
+namespace Devhelp\Piwik\Api\Param\Segment\Operator;
 
 interface Operator
 {
     /**
-     * string representing an assertion in the context of a Segment
+     * string representing an operator in the context of a Segment
      *
      * @return string
      * @see Segment

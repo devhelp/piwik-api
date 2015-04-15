@@ -2,7 +2,7 @@
 
 namespace Devhelp\Piwik\Api\Param\Segment;
 
-use Devhelp\Piwik\Api\Param\Segment\Assertion\Operator;
+use Devhelp\Piwik\Api\Param\Segment\Operator\Operator;
 
 /**
  * Represents piwik segment value. Can be used to build
@@ -10,9 +10,6 @@ use Devhelp\Piwik\Api\Param\Segment\Assertion\Operator;
  */
 class Segment
 {
-    const OR_EXPRESSION = ',';
-    const AND_EXPRESSION = ';';
-
     private $queryParts = array();
 
     /**
@@ -30,49 +27,49 @@ class Segment
     }
 
     /**
-     * starts segment query with assertion
+     * starts segment query with operator
      *
-     * @param Operator $assertion
+     * @param Operator $operator
      * @return self
      */
-    public function where(Operator $assertion)
+    public function where(Operator $operator)
     {
         $this->queryParts = array();
-        $this->queryParts[] = $assertion;
+        $this->queryParts[] = $operator;
 
         return $this;
     }
 
     /**
-     * adds new assertion using with AND. Starts new segment query if was not started yet
+     * adds new operator using with AND. Starts new segment query if was not started yet
      *
-     * @param Operator $assertion
+     * @param Operator $operator
      * @return self
      */
-    public function andWhere(Operator $assertion)
+    public function andWhere(Operator $operator)
     {
         if ($this->queryParts) {
-            $this->queryParts[] = self::AND_EXPRESSION;
+            $this->queryParts[] = ';';
         }
 
-        $this->queryParts[] = $assertion;
+        $this->queryParts[] = $operator;
 
         return $this;
     }
 
     /**
-     * adds new assertion using with OR. Starts new segment query if was not started yet
+     * adds new operator using with OR. Starts new segment query if was not started yet
      *
-     * @param Operator $assertion
+     * @param Operator $operator
      * @return self
      */
-    public function orWhere(Operator $assertion)
+    public function orWhere(Operator $operator)
     {
         if ($this->queryParts) {
-            $this->queryParts[] = self::OR_EXPRESSION;
+            $this->queryParts[] = ',';
         }
 
-        $this->queryParts[] = $assertion;
+        $this->queryParts[] = $operator;
 
         return $this;
     }

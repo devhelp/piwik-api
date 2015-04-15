@@ -3,14 +3,14 @@
 namespace Devhelp\Piwik\Api\Param\Segment;
 
 
-use Devhelp\Piwik\Api\Param\Segment\Assertion\Contains;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\DoesNotContain;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\Equals;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\GreaterThan;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\GreaterThanOrEqual;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\LessThan;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\LessThanOrEqual;
-use Devhelp\Piwik\Api\Param\Segment\Assertion\NotEquals;
+use Devhelp\Piwik\Api\Param\Segment\Operator\Contains;
+use Devhelp\Piwik\Api\Param\Segment\Operator\DoesNotContain;
+use Devhelp\Piwik\Api\Param\Segment\Operator\Equals;
+use Devhelp\Piwik\Api\Param\Segment\Operator\GreaterThan;
+use Devhelp\Piwik\Api\Param\Segment\Operator\GreaterThanOrEqual;
+use Devhelp\Piwik\Api\Param\Segment\Operator\LessThan;
+use Devhelp\Piwik\Api\Param\Segment\Operator\LessThanOrEqual;
+use Devhelp\Piwik\Api\Param\Segment\Operator\NotEquals;
 
 class SegmentTest extends \PHPUnit_Framework_TestCase
 {

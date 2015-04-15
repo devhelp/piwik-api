@@ -1,6 +1,6 @@
 <?php
 
-namespace Devhelp\Piwik\Api\Param\Segment\Assertion;
+namespace Devhelp\Piwik\Api\Param\Segment\Operator;
 
 class GreaterThan extends GenericOperator
 {
