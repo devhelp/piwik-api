@@ -61,6 +61,8 @@ $params = array(
     'token_auth' => new LazyTokenAuthValue()
 );
 
+$api->getMethod('MyModule.myAction')->call($params);
+
 /*
  * params to which $params array will be resolved on method call are:
  * array(
