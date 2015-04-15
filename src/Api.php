@@ -6,8 +6,8 @@ use Devhelp\Piwik\Api\Client\PiwikClient;
 use Devhelp\Piwik\Api\Method\Method;
 
 /**
- * Creates Method objects using predefined set of arguments, so that
- * all methods will share the same basic set of them
+ * Creates Method objects using predefined set of arguments,
+ * so that all methods will share the same basic set of them
  */
 class Api
 {

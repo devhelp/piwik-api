@@ -58,7 +58,7 @@ class ParamResolver
         foreach ($params as $key => $value) {
             if ($value instanceof Param) {
                 $value = $value->value();
-            } elseif (is_callable($value)) {
+            } elseif ($value instanceof \Closure) {
                 $value = $value();
             }
 

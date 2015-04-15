@@ -28,7 +28,9 @@ class PiwikGuzzleClient implements PiwikClient
 
     public function call($url, array $params = array())
     {
-        $request = $this->guzzleClient->createRequest($this->method, $url, $params);
+        $request = $this->guzzleClient->createRequest($this->method, $url);
+
+        $request->getQuery()->merge($params);
 
         return $this->guzzleClient->send($request);
     }
