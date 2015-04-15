@@ -57,6 +57,7 @@ particularly useful for returning a token_auth by user that is currently logged 
 ```php
 $params = array(
     'myCustomVar1' => 'someValue',
+    'myCustomVar2' => function() {/*..*/},
     'token_auth' => new LazyTokenAuthValue()
 );
 
@@ -64,6 +65,7 @@ $params = array(
  * params to which $params array will be resolved on method call are:
  * array(
  *     'myCustomVar1' => 'someValue',
+ *     'myCustomVar2' => ..., //this what was resolved from anonymous function
  *     'token_auth' => ..., //this what was resolved from LazyTokenAuthValue
  * );
  */
