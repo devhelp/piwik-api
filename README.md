@@ -19,7 +19,7 @@ Helps in using piwik segmentation and in lazy-loading api parameters values on m
 Basically only thing that you need to implement in order to be able to use the Method is your PiwikClient class.
 There is an already implemented PiwikGuzzleClient for which you have to configure the Guzzle http client.
 
-You can include PiwikGuzzleClient by adding devhelp/piwik-api-guzzle in composer.json
+You can include PiwikGuzzleClient by adding [devhelp/piwik-api-guzzle](http://github.com/devhelp/piwik-api-guzzle) in composer.json
 
 ### Standalone Method usage
 
