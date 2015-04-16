@@ -1,6 +1,7 @@
 <?php
 
 namespace Devhelp\Piwik\Api\Client;
+
 use Devhelp\Piwik\Api\Exception\InvalidResponse;
 
 /**
