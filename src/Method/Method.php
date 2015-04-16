@@ -17,9 +17,19 @@ class Method
     private $piwikClient;
 
     /**
+     * @var string piwik api endpoint
+     */
+    private $url;
+
+    /**
      * @var string
      */
     private $method;
+
+    /**
+     * @var string return format of piwik api response
+     */
+    private $format;
 
     /**
      * @var ParamResolver

@@ -48,13 +48,7 @@ class Segment
      */
     public function andWhere(Operator $operator)
     {
-        if ($this->queryParts) {
-            $this->queryParts[] = ';';
-        }
-
-        $this->queryParts[] = $operator;
-
-        return $this;
+        return $this->append($operator, ';');
     }
 
     /**
@@ -65,8 +59,13 @@ class Segment
      */
     public function orWhere(Operator $operator)
     {
+        return $this->append($operator, ',');
+    }
+
+    private function append(Operator $operator, $sign)
+    {
         if ($this->queryParts) {
-            $this->queryParts[] = ',';
+            $this->queryParts[] = $sign;
         }
 
         $this->queryParts[] = $operator;
