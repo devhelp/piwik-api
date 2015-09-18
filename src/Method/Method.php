@@ -24,7 +24,7 @@ class Method
     /**
      * @var string
      */
-    private $method;
+    private $name;
 
     /**
      * @var string return format of piwik api response
@@ -41,18 +41,28 @@ class Method
      */
     private $defaultParams = array();
 
-    public function __construct(PiwikClient $piwikClient, $url, $method, $format = 'json')
+    public function __construct(PiwikClient $piwikClient, $url, $name, $format = 'json')
     {
         $this->piwikClient = $piwikClient;
         $this->url = $url;
-        $this->method = $method;
+        $this->name = $name;
         $this->format = $format;
+    }
+
+    public function name()
+    {
+        return $this->name;
+    }
+
+    public function url()
+    {
+        return $this->url;
     }
 
     public function setDefaultParams(array $params)
     {
         /*
-         * provided default format parameter if not set
+         * provides default format parameter if not set
          */
         $params['format'] = isset($params['format']) ? $params['format'] : $this->format;
 
@@ -72,10 +82,10 @@ class Method
         $this->resolver->setDefaults($this->defaultParams);
         $this->resolver->setMandatory(array(
             'module' => 'API',
-            'method' => $this->method
+            'method' => $this->name()
         ));
 
-        return $this->piwikClient->call($this->url, $this->resolver->resolve($params));
+        return $this->piwikClient->call($this->url(), $this->resolver->resolve($params));
     }
 
     private function initResolver()

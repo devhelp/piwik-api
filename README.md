@@ -11,15 +11,15 @@ $ composer require 'devhelp/piwik-api:dev-master'
 
 ## Purpose
 
-Helps creating self-contained piwik methods that are able to make call to piwik api with predefined or/and runtime arguments.
-Helps in using piwik segmentation and in lazy-loading api parameters values on method call.
+Helps creating self-contained Piwik methods that are able to make call to [Piwik API](http://developer.piwik.org/api-reference/reporting-api) with predefined or/and runtime arguments.
+Helps in using [Piwik segmentation](http://developer.piwik.org/api-reference/reporting-api-segmentation) and in lazy-loading api parameters values on method call.
 
 ## Usage
 
-Basically only thing that you need to implement in order to be able to use the Method is your PiwikClient class.
-There is an already implemented PiwikGuzzleClient for which you have to configure the Guzzle http client.
+Basically only thing that you need to implement in order to be able to use the `Method` is your `PiwikClient` class.
+There is an already implemented `PiwikGuzzleClient` for which you have to configure the `Guzzle` http client.
 
-You can include PiwikGuzzleClient by adding [devhelp/piwik-api-guzzle](http://github.com/devhelp/piwik-api-guzzle) in composer.json
+You can include `PiwikGuzzleClient` by adding [devhelp/piwik-api-guzzle](http://github.com/devhelp/piwik-api-guzzle) in composer.json
 
 ### Standalone Method usage
 
@@ -50,9 +50,9 @@ $api->getMethod('MyXXXModule.myXXXAction')->call();
 ### Passing parameters to the call
 
 This can be done be passing an array on method call or setting it as default params for the method or the whole api.
-Parameters can be either a scalar, a callback or an object implementing Param interface.
+Parameters can be either a scalar, a callback or an object implementing `Param` interface.
 
-When parameter value implements a Param interface or is a callback then it's final value is resolved on call() runtime
+When parameter value implements a `Param` interface or is a callback then it's final value is resolved on call() runtime
 (resulting in lazy-loaded param value). There is a Segment param that will be explained later. Lazy-loading can be
 particularly useful for returning a token_auth by user that is currently logged in
 
@@ -77,7 +77,7 @@ $api->getMethod('MyModule.myAction')->call($params);
 
 ### Using segments
 
-Segment param has its own implementation that allows to build piwik segment query. It's value is resolved on call
+`Segment` param has its own implementation that allows to build Piwik segment query. It's value is resolved on call
 
 ```php
 use Devhelp\Piwik\Api\Param\Segment as SegmentParam;
