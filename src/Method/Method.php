@@ -4,6 +4,7 @@ namespace Devhelp\Piwik\Api\Method;
 
 use Devhelp\Piwik\Api\Client\PiwikClient;
 use Devhelp\Piwik\Api\Param\ParamResolver;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Provides encapsulated method call to piwik api
@@ -73,7 +74,7 @@ class Method
      * calls piwik api
      *
      * @param array $params
-     * @return mixed
+     * @return ResponseInterface
      */
     public function call(array $params)
     {
