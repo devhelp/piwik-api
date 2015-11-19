@@ -2,7 +2,6 @@
 
 namespace Devhelp\Piwik\Api\Client;
 
-
 use Psr\Http\Message\ResponseInterface;
 
 /**
