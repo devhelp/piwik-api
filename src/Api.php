@@ -24,14 +24,14 @@ class Api
         $this->url = $url;
     }
 
-    private function getDefaultParams()
-    {
-        return $this->defaultParams;
-    }
-
     public function setDefaultParams(array $params)
     {
         $this->defaultParams = $params;
+    }
+
+    public function getDefaultParams()
+    {
+        return $this->defaultParams;
     }
 
     /**

@@ -23,12 +23,12 @@ class Method
     private $url;
 
     /**
-     * @var string
+     * @var string piwik method name (equals to 'method' parameter in reporting api)
      */
     private $name;
 
     /**
-     * @var string return format of piwik api response
+     * @var string return format of piwik api response (equals to 'format' parameter in reporting api)
      */
     private $format;
 
@@ -62,12 +62,12 @@ class Method
 
     public function setDefaultParams(array $params)
     {
-        /*
-         * provides default format parameter if not set
-         */
-        $params['format'] = isset($params['format']) ? $params['format'] : $this->format;
-
         $this->defaultParams = $params;
+    }
+
+    public function getDefaultParams()
+    {
+        return $this->defaultParams;
     }
 
     /**
@@ -80,7 +80,12 @@ class Method
     {
         $this->initResolver();
 
-        $this->resolver->setDefaults($this->defaultParams);
+        /**
+         * makes sure that 'format' is passed and that 'API' and 'method'
+         * parameters are not overwritten by defaults nor by call parameters
+         */
+        $defaults = array_merge(array('format' => $this->format), $this->defaultParams);
+        $this->resolver->setDefaults($defaults);
         $this->resolver->setMandatory(array(
             'module' => 'API',
             'method' => $this->name()

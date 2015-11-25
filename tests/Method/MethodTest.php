@@ -32,6 +32,27 @@ class MethodTest extends ProphecyTestCase
     /**
      * @test
      */
+    public function it_wraps_piwik_client_call()
+    {
+        $this->given_url_equals('http://my.piwik.pro/index.php');
+        $this->given_method_name_equals('MyPlugin.someAction');
+        $this->given_call_params_equals(array('my_param_1' => 'value_1', 'my_param_2' => 'value_2'));
+        $this->piwik_client_is_called_with_the_params(
+            'http://my.piwik.pro/index.php',
+            array(
+                'my_param_1' => 'value_1',
+                'my_param_2' => 'value_2',
+                'module' => 'API',
+                'method' => 'MyPlugin.someAction',
+                'format' => 'json',
+            )
+        );
+        $this->when_method_is_called();
+    }
+
+    /**
+     * @test
+     */
     public function it_wraps_piwik_client_call_using_predefined_params()
     {
         $this->given_url_equals('http://my.piwik.pro/index.php');
