@@ -98,6 +98,11 @@ $params = array('segment' => new SegmentParam($segment));
  */
 ```
 
+### Integrations
+
+* [devhelp/piwik-bundle](http://github.com/devhelp/piwik-bundle)
+* [devhelp/piwik-silex-provider](http://github.com/devhelp/piwik-silex-provider)
+
 ## Credits
 
 Brought to you by : [devhelp.pl](http://devhelp.pl)
