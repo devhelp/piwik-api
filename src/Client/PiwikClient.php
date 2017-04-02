@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 interface PiwikClient
 {
     /**
-     * @param string $url base piwik api url
+     * @param string $url piwik api url
      * @param array $params api parameters
      * @return ResponseInterface
      */

@@ -1,18 +1,18 @@
 [![Build Status](https://travis-ci.org/devhelp/piwik-api.svg?branch=master)](https://travis-ci.org/devhelp/piwik-api)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/devhelp/piwik-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/devhelp/piwik-api?branch=master)
 
-## Installation
-
-Please check [composer website](http://getcomposer.org) for more information.
-
-```
-$ composer require 'devhelp/piwik-api:dev-master'
-```
-
 ## Purpose
 
 Helps creating self-contained Piwik methods that are able to make call to [Piwik API](http://developer.piwik.org/api-reference/reporting-api) with predefined or/and runtime arguments.
 Helps in using [Piwik segmentation](http://developer.piwik.org/api-reference/reporting-api-segmentation) and in lazy-loading api parameters values on method call.
+
+## Installation
+
+```
+$ composer require devhelp/piwik-api
+```
+
+Please check [composer website](http://getcomposer.org) for more information.
 
 ## Usage
 
@@ -105,4 +105,4 @@ $params = array('segment' => new SegmentParam($segment));
 
 ## Credits
 
-Brought to you by : [devhelp.pl](http://devhelp.pl)
+Brought to you by: [devhelp.pl](http://devhelp.pl)
